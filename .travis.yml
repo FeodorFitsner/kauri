@@ -24,7 +24,7 @@ compiler:
   - gcc
 
 before_script:
-  - apt-get install cmake
+  - sudo apt-get install cmake
   - mkdir build
   - cd build
   - cmake ..
