@@ -21,9 +21,9 @@ version: 0.1.0-{build}-{branch}
 
 environment:
     matrix:
-        - generator: "MinGW Makefiles"
-        - generator: "Visual Studio 9 2008"
-        - generator: "Visual Studio 10"
+#        - generator: "MinGW Makefiles"
+#        - generator: "Visual Studio 9 2008"
+#        - generator: "Visual Studio 10"
         - generator: "Visual Studio 11"
         - generator: "Visual Studio 12"
 
