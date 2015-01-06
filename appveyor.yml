@@ -9,3 +9,6 @@ environment:
 
 before_build:
     - cmake -G "%generator%"
+
+build:
+    project: "kauri.sln"
