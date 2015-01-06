@@ -21,7 +21,7 @@ include(FeatureSummary)
 
 ## -- KAURI_DEFINE_TEST_TARGETS --
 
-option(KAURI_DEFINE_TEST_TARGETS "Define unit test targets." OFF)
+option(KAURI_DEFINE_TEST_TARGETS "Define unit test targets." ON)
 
 add_feature_info(
     KAURI_DEFINE_TEST_TARGETS
