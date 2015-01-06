@@ -24,12 +24,11 @@ compiler:
   - gcc
 
 before_script:
-  - sudo apt-get install cmake=3.1
   - mkdir build
   - cd build
   - cmake ..
 
-script: make && make check
+script: cd build && make && make check
 
 notifications:
   email: false
