@@ -36,5 +36,6 @@ before_build:
 
 build:
     project: "kauri.sln"
+    parallel: true
 
 ## END ##
