@@ -1,5 +1,5 @@
 # Kauri
 
-[![Build Status](https://travis-ci.org/steazzalini/kauri.svg?branch=develop)](https://travis-ci.org/steazzalini/kauri)
+[![Travis](https://img.shields.io/travis/steazzalini/kauri/develop.svg?style=flat)](https://travis-ci.org/steazzalini/kauri)
 
 *TODO*
