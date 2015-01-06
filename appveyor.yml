@@ -7,6 +7,10 @@ environment:
         - generator: "Visual Studio 11"
         - generator: "Visual Studio 12"
 
+platform:
+    - x64
+    - x86
+
 before_build:
     - cmake -G "%generator%"
 
