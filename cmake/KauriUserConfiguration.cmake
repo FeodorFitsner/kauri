@@ -43,19 +43,26 @@ set(KAURI_LOG_CMAKE_FEATURE_SUMMARY_PATH "${CMAKE_BINARY_DIR}/log/cmake_feature_
     CACHE STRING
     "If KAURI_LOG_CMAKE_FEATURE_SUMMARY is enabled, defines where to save the cmake features summary log.")
 
-## -- KAURI_LOG_XML_TARGETS_INFO --
+# LoggableTarget requires at least cmake-3.0.0
+# to generate a log file so no option regardig
+# it's usage is given if this requirement is not satisfacted
+if(NOT CMAKE_VERSION VERSION_LESS 3.0.0)
 
-option(KAURI_LOG_XML_TARGETS_INFO "Define if log a XML file containing all the information about the produced targets." OFF)
+    ## -- KAURI_LOG_XML_TARGETS_INFO --
 
-add_feature_info(
-    KAURI_LOG_XML_TARGETS_INFO
-    KAURI_LOG_XML_TARGETS_INFO
-    "if set to ON, a XML file containing all the informations about the produced targets is stored in the path defined by KAURI_LOG_CMAKE_FEATURE_SUMMARY_PATH. This file contains for each target the soruce files used to build it, the toolchain and it configuration, as well as output location and other informations.")
+    option(KAURI_LOG_XML_TARGETS_INFO "Define if log a XML file containing all the information about the produced targets." OFF)
 
-## -- KAURI_LOG_XML_TARGETS_INFO_PATH --
+    add_feature_info(
+        KAURI_LOG_XML_TARGETS_INFO
+        KAURI_LOG_XML_TARGETS_INFO
+        "if set to ON, a XML file containing all the informations about the produced targets is stored in the path defined by KAURI_LOG_CMAKE_FEATURE_SUMMARY_PATH. This file contains for each target the soruce files used to build it, the toolchain and it configuration, as well as output location and other informations.")
 
-set(KAURI_LOG_XML_TARGETS_INFO_PATH "${CMAKE_BINARY_DIR}/log/targets.xml"
-    CACHE STRING
-    "Define where to store the file described in KAURI_LOG_XML_TARGETS_INFO.")
+    ## -- KAURI_LOG_XML_TARGETS_INFO_PATH --
+
+    set(KAURI_LOG_XML_TARGETS_INFO_PATH "${CMAKE_BINARY_DIR}/log/targets.xml"
+        CACHE STRING
+        "Define where to store the file described in KAURI_LOG_XML_TARGETS_INFO.")
+
+endif()
 
 ## END ##

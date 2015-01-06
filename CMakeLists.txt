@@ -17,9 +17,9 @@
 ##  along with this program. If not, see <http://www.gnu.org/licenses/>.
 ##
 
-cmake_minimum_required(VERSION 3.1.0 FATAL_ERROR)
+cmake_minimum_required(VERSION 2.8.7 FATAL_ERROR)
 
-project(KAURI VERSION 0.1.0 LANGUAGES CXX)
+project(KAURI CXX)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 
