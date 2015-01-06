@@ -38,6 +38,8 @@ before_script:
 
 script: make && make check
 
+cache: apt
+
 notifications:
   email: false
 
