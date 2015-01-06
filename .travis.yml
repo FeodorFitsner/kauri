@@ -28,7 +28,7 @@ before_script:
   - cd build
   - cmake ..
 
-script: cd build && make && make check
+script: make && make check
 
 notifications:
   email: false
