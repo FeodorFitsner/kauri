@@ -21,4 +21,6 @@ include(KauriTargets)
 
 kauri_add_executable(kauri ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp)
 
+set_target_properties(kauri PROPERTIES COMPILE_FLAGS "-std=c++11")
+
 ## END ##
