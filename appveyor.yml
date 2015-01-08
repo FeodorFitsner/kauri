@@ -23,10 +23,13 @@ version: 0.1.0-{build}-{branch}
 # http://help.appveyor.com/discussions/questions/629-opencv-is-it-possible-to-install-opencv-in-appveyor
 os: unstable
 
-
 platform:
     - x64
     - x86
+
+configuration:
+    - Debug
+    - Release
 
 #environment:
 #    matrix:
