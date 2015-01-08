@@ -35,7 +35,7 @@ os: unstable
 #        - generator: "Visual Studio 12 Win64"
 
 build_script:
-    - cmd: dir
+    - cmd: dir ci\appveyor
     - cmd: C:\msys\1.0\bin\sh.exe --login ci\appveyor\build_and_test_msys.sh
 
 test_script:
