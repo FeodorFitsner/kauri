@@ -19,8 +19,6 @@
 ##  along with this program. If not, see <http://www.gnu.org/licenses/>.
 ##
 
-echo "platform: %PLATFORM%"
-echo "configuration: %CONFIGURATION%"
 mkdir build
 cd build
 cmake -G "MSYS Makefiles" C:\\projects\\kauri
