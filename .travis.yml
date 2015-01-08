@@ -47,7 +47,7 @@ cache: apt
 matrix:
   allow_failures:
     # since travis multi-os is a beta, a failure is acceptable
-    # http://docs.travis-ci.com/user/multi-os/
+    # http://docs.travis-ci.com/user/multi-os
     - os: osx
 
 notifications:
