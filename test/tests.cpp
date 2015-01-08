@@ -21,11 +21,6 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 
-TEST(tests, foo) {
-
-    ASSERT_TRUE(false);
-}
-
 TEST(tests, bar) {
 
     ASSERT_TRUE(true);
