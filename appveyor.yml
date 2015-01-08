@@ -37,7 +37,8 @@ environment:
 build_script:
     - cmd: md build
     - cmd: cd build
-    - cmd: cmake ..
+    - cmd: dir C:\msys
+    - cmd: cmake -G "%generator%" ..
     - cmd: make
 
 test_script:
