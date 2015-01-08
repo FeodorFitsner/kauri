@@ -17,11 +17,11 @@
 ##  along with this program. If not, see <http://www.gnu.org/licenses/>.
 ##
 
+language: cpp
+
 os:
   - linux
   - osx
-
-language: cpp
 
 compiler:
   - clang
@@ -43,6 +43,12 @@ before_script:
 script: make && make check
 
 cache: apt
+
+matrix:
+  allow_failures:
+    # since travis multi-os is a beta, a failure is acceptable
+    # http://docs.travis-ci.com/user/multi-os/
+    - os: osx
 
 notifications:
   email: false
