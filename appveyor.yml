@@ -26,6 +26,7 @@ os: unstable
 platform:
     - x64
     - x86
+    - Any CPU
 
 configuration:
     - Debug
