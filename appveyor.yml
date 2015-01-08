@@ -25,7 +25,7 @@ os: unstable
 
 environment:
     matrix:
-         - generator: "MSYS Makefiles"
+#        - generator: "MSYS Makefiles"
 #        - generator: "MinGW Makefiles"
 #        - generator: "Visual Studio 9 2008"
 #        - generator: "Visual Studio 10"
@@ -35,11 +35,7 @@ environment:
 #        - generator: "Visual Studio 12 Win64"
 
 build_script:
-    - cmd: md build
-    - cmd: cd build
-    - cmd: dir C:\msys
-    - cmd: cmake -G "%generator%" ..
-    - cmd: make
+    - cmd: C:\msys\1.0\bin\sh.exe --login ci\appveyor\build_and_test_msys.sh
 
 test_script:
     - cmd: make check
