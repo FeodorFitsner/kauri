@@ -19,10 +19,7 @@
 ##  along with this program. If not, see <http://www.gnu.org/licenses/>.
 ##
 
-mkdir build
-cd build
-cmake -G "MSYS Makefiles" C:\\projects\\kauri
-make
+pwd
 make check
 
 ## END ##
