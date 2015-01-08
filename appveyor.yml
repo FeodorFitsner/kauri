@@ -43,6 +43,8 @@ configuration:
 #        - generator: "Visual Studio 12 Win64"
 
 build_script:
+ 	- cmd: echo "platform: %PLATFORM%"
+    - cmd: echo "configuration: %CONFIGURATION%"
     - cmd: C:\msys\1.0\bin\sh.exe --login C:\projects\kauri\ci\appveyor\msys\build.sh
 
 test_script:
