@@ -19,8 +19,6 @@
 ##  along with this program. If not, see <http://www.gnu.org/licenses/>.
 ##
 
-pwd
-rm -rf build
 mkdir build
 cd build
 cmake -G "MSYS Makefiles" C:\\projects\\kauri
