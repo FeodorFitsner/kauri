@@ -19,17 +19,21 @@
 
 language: cpp
 
+os:
+  - linux
+  - osx
+
 compiler:
   - clang
   - gcc
 
 before_install:
-  - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
-  - sudo apt-get update -qq
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test; fi
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then sudo apt-get update -qq; fi
 
 install:
-  - sudo apt-get install -qq gcc-4.8 g++-4.8
-  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 90
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then sudo apt-get install -qq gcc-4.8 g++-4.8; fi
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 90; fi
 
 before_script:
   - mkdir build
@@ -39,6 +43,12 @@ before_script:
 script: make && make check
 
 cache: apt
+
+matrix:
+  allow_failures:
+    # since travis multi-os is a beta, a failure is acceptable
+    # http://docs.travis-ci.com/user/multi-os
+    - os: osx
 
 notifications:
   email: false
