@@ -19,8 +19,8 @@
 
 version: 0.1.0-{build}-{branch}
 
-# MSYS is installed only in the unstable image
-# http://help.appveyor.com/discussions/questions/629-opencv-is-it-possible-to-install-opencv-in-appveyor
+# To support MSYS builds it is necessary to use the unstable OS image.
+# Discussion thread on this: http://help.appveyor.com/discussions/questions/629-opencv-is-it-possible-to-install-opencv-in-appveyor
 os: unstable
 
 platform:
@@ -31,20 +31,7 @@ configuration:
     - Debug
     - Release
 
-#environment:
-#    matrix:
-#        - generator: "MSYS Makefiles"
-#        - generator: "MinGW Makefiles"
-#        - generator: "Visual Studio 9 2008"
-#        - generator: "Visual Studio 10"
-#        - generator: "Visual Studio 11"
-#        - generator: "Visual Studio 11 Win64"
-#        - generator: "Visual Studio 12"
-#        - generator: "Visual Studio 12 Win64"
-
 build_script:
-    - cmd: "echo \"platform: %PLATFORM%\""
-    - cmd: "echo \"configuration: %CONFIGURATION%\""
     - cmd: C:\msys\1.0\bin\sh.exe --login C:\projects\kauri\ci\appveyor\msys\build.sh
 
 test_script:
