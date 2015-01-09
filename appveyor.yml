@@ -33,6 +33,7 @@ configuration:
     - Release
 
 build_script:
+    - set PATH=C:\msys\1.0\bin;%PATH%
     - cmd: C:\msys\1.0\bin\sh.exe --login C:\projects\kauri\ci\appveyor\msys\build.sh
 
 test_script:
