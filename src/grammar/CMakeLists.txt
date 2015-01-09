@@ -17,21 +17,36 @@
 ##  along with this program. If not, see <http://www.gnu.org/licenses/>.
 ##
 
-include(KauriTargets)
-include(DataStructureSet)
+find_package(FLEX REQUIRED)
+find_package(BISON REQUIRED)
+
 include(GlobalSourceFilesProperties)
 include(SourceFileContainer)
 
-add_subdirectory(grammar)
+flex_target(
+    kauri_scanner
+    ${CMAKE_CURRENT_SOURCE_DIR}/scanner.l
+    ${CMAKE_CURRENT_BIANRY_DIR}/scanner.cpp)
 
-source_file_container(GET kauri_source_files files)
+bison_target(
+    kauri_parser
+    ${CMAKE_CURRENT_SOURCE_DIR}/parser.y
+    ${CMAKE_CURRENT_BINARY_DIR}/parser.cpp)
 
-message(WARNING "v = ${files}")
+add_flex_bison_dependency(kauri_scanner kauri_parser)
 
-global_source_files_properties(EXPORT ALL)
+global_source_files_properties(
+    SET
+        ${CMAKE_CURRENT_SOURCE_DIR}/scanner.cpp     # use CMAKE_CURRENT_BINARY_DIR instead
+        ${CMAKE_CURRENT_SOURCE_DIR}/parser.cpp
+    PROPERTIES
+        GENERATED TRUE)
 
-kauri_add_executable(kauri ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp ${files})
-
-set_target_properties(kauri PROPERTIES COMPILE_FLAGS "-std=c++11")
+source_file_container(
+    ADD
+        kauri_source_files
+    FILES
+        ${CMAKE_CURRENT_SOURCE_DIR}/scanner.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/parser.cpp)
 
 ## END ##
