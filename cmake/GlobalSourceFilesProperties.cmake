@@ -1,6 +1,6 @@
 ##
 ##  GlobalSourceFilesProperties.cmake
-##  Revision: 3 (05 jan 2015)
+##  Revision: 4 (09 jan 2015)
 ##
 ##  Manage global scoped source files properties.
 ##  Using `set_source_files_properties' a property set to a source file
@@ -21,7 +21,7 @@
 ##
 ##  proj\CMakeLists.txt:
 ##
-##    include(GlobalSourceFilesProperties)
+##    include(GlobalSourceFilesProperties REQUIRED)
 ##
 ##    add_subdirectory(subdir)
 ##
@@ -32,6 +32,8 @@
 ##    # -> prop3 set to a.txt is also visible here without exporting it
 ##
 ##  proj\subdir\CMakeLists.txt:
+##
+##    include(GlobalSourceFilesProperties REQUIRED)
 ##
 ##    global_source_files_properties(SET a.txt b.txt c.txt PROPERTIES prop1 value1 prop2 value2)
 ##
