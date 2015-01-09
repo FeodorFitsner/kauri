@@ -38,7 +38,7 @@ before_script:
   - cd build
   - cmake ..
 
-script: make && make check
+script: make VERBOSE=1 && make check
 
 cache: apt
 

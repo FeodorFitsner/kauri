@@ -22,6 +22,6 @@
 mkdir build
 cd build
 cmake -G "MSYS Makefiles" C:\\projects\\kauri
-make
+make VERBOSE=1
 
 ## END ##
