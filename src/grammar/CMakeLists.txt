@@ -24,21 +24,27 @@ include(GlobalSourceFilesProperties)
 include(SourceFileContainer)
 
 flex_target(
-    kauri_scanner
+    kauri_flex_scanner
     ${CMAKE_CURRENT_SOURCE_DIR}/scanner.l
-    ${CMAKE_CURRENT_BIANRY_DIR}/scanner.cpp)
+    ${CMAKE_CURRENT_BINARY_DIR}/scanner.cpp)
 
 bison_target(
-    kauri_parser
+    kauri_bison_parser
     ${CMAKE_CURRENT_SOURCE_DIR}/parser.y
     ${CMAKE_CURRENT_BINARY_DIR}/parser.cpp)
 
-add_flex_bison_dependency(kauri_scanner kauri_parser)
+add_flex_bison_dependency(kauri_flex_scanner kauri_bison_parser)
+
+add_custom_target(
+    kauri_parser
+    DEPENDS
+        ${FLEX_kauri_flex_scanner_OUTPUTS}
+        ${BISON_kauri_bison_parser_OUTPUTS})
 
 global_source_files_properties(
     SET
-        ${CMAKE_CURRENT_SOURCE_DIR}/scanner.cpp     # use CMAKE_CURRENT_BINARY_DIR instead
-        ${CMAKE_CURRENT_SOURCE_DIR}/parser.cpp
+        ${CMAKE_CURRENT_BINARY_DIR}/scanner.cpp
+        ${CMAKE_CURRENT_BINARY_DIR}/parser.cpp
     PROPERTIES
         GENERATED TRUE)
 
@@ -46,7 +52,7 @@ source_file_container(
     ADD
         kauri_source_files
     FILES
-        ${CMAKE_CURRENT_SOURCE_DIR}/scanner.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/parser.cpp)
+        ${CMAKE_CURRENT_BINARY_DIR}/scanner.cpp
+        ${CMAKE_CURRENT_BINARY_DIR}/parser.cpp)
 
 ## END ##

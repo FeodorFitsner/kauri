@@ -24,13 +24,13 @@ include(SourceFileContainer)
 
 add_subdirectory(grammar)
 
-source_file_container(GET kauri_source_files files)
-
-message(WARNING "v = ${files}")
+source_file_container(GET kauri_source_files source_files)
 
 global_source_files_properties(EXPORT ALL)
 
-kauri_add_executable(kauri ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp ${files})
+kauri_add_library(kauri ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp ${source_files})
+
+add_dependencies(kauri kauri_parser)
 
 set_target_properties(kauri PROPERTIES COMPILE_FLAGS "-std=c++11")
 
