@@ -25,12 +25,12 @@ os: unstable
 
 platform:
     - x64
-    - x86
-    - Any CPU
+#    - x86
+#    - Any CPU
 
 configuration:
     - Debug
-    - Release
+#    - Release
 
 build_script:
     - set PATH=C:\msys\1.0\bin;%PATH%
