@@ -46,7 +46,10 @@ global_source_files_properties(
         ${CMAKE_CURRENT_BINARY_DIR}/scanner.cpp
         ${CMAKE_CURRENT_BINARY_DIR}/parser.cpp
     PROPERTIES
-        GENERATED TRUE)
+        # skip the file presence check during the configuration process
+        GENERATED TRUE
+        # flex uses a lot the `register' class specifier, which is deprecated... no care about that too much
+        COMPILE_FLAGS -Wno-deprecated-register)
 
 source_file_container(
     ADD
