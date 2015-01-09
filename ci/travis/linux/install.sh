@@ -1,3 +1,5 @@
+#!/bin/sh
+
 ##
 ##  kauri
 ##
@@ -17,38 +19,7 @@
 ##  along with this program. If not, see <http://www.gnu.org/licenses/>.
 ##
 
-language: cpp
-
-os:
-  - linux
-  - osx
-
-compiler:
-  - clang
-  - gcc
-
-before_install:
-  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then ./ci/travis/linux/before_install.sh; fi
-
-install:
-  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then ./ci/travis/linux/install.sh; fi
-
-before_script:
-  - mkdir build
-  - cd build
-  - cmake ..
-
-script: make && make check
-
-cache: apt
-
-matrix:
-  allow_failures:
-    # since travis multi-os is a beta, a failure is acceptable
-    # http://docs.travis-ci.com/user/multi-os
-    - os: osx
-
-notifications:
-  email: false
+sudo apt-get install -qq gcc-4.8 g++-4.8
+sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 90
 
 ## END ##
